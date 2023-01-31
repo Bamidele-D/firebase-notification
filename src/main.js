@@ -5,7 +5,7 @@ import App from "./App.vue";
 import router from "./router";
 
 import "./assets/main.css";
-import "./firebase-messaging-sw";
+// import "./firebase-messaging-sw";
 // import * as firebase from "firebase/app";
 // import "firebase/messaging";
 
@@ -28,6 +28,9 @@ import "./firebase-messaging-sw";
 
 // // fiebase configs end
 // import firebaseMessaging from "../src/firebase";
+
+// import firebaseMessaging from '../public/firebase';
+
 
 const app = createApp(App);
 // app.config.globalProperties.$messaging = firebaseMessaging;

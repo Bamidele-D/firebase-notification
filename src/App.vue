@@ -1,5 +1,10 @@
 <script setup>
 import { RouterView } from "vue-router";
+import { onMounted } from "vue";
+import firebaseInitialize from "./firebase";
+onMounted(() => {
+    firebaseInitialize();
+});
 </script>
 
 <template>
