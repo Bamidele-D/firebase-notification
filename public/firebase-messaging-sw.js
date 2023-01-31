@@ -31,8 +31,8 @@
 // // } catch (err) {
 // //   console.log(err);
 // // }
-importScripts('https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/8.2.7/firebase-messaging.js');
+importScripts("https://www.gstatic.com/firebasejs/8.2.7/firebase-app.js");
+importScripts("https://www.gstatic.com/firebasejs/8.2.7/firebase-messaging.js");
 
 // import { initializeApp } from "firebase/app";
 // import { getMessaging, getToken } from "firebase/messaging";
@@ -51,37 +51,36 @@ const firebaseConfig = {
 
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);
-firebase.messaging()
-const messaging  = firebase.messaging()
+firebase.messaging();
+const messaging = firebase.messaging();
 messaging.onBackgroundMessage((payload) => {
-    console.log("testing sevice worker")
-    console.log(payload)
-    // Customize notification here
-    const notificationTitle = payload.notification.title;
-    const notificationOptions = {
-      body: payload.notification.body,
-      icon: payload.notification.image
-    };
-  
-    self.registration.showNotification(notificationTitle,
-      notificationOptions);
-  });
+  console.log("testing sevice worker");
+  console.log(payload);
+  // Customize notification here
+  const notificationTitle = payload.notification.title;
+  const notificationOptions = {
+    body: payload.notification.body,
+    icon: payload.notification.image,
+  };
 
-  // messaging.onMessage(function(payload) {
-  //   console.log('Receiving foreground message');
-  //   console.log(payload)
-  //     var notificationTitle = 'vue-cometchat-firebase';
-  //   var notificationOptions = {
-  //     body: payload.notification.body,
-  //     icon: '',
-  //   };
-  
-  //   var notification = new Notification(notificationTitle, notificationOptions);
-  //   notification.onclick = function(event) {
-  //     notification.close();
-  //     console.log(event);
-  //   };
-  //  });
+  self.registration.showNotification(notificationTitle, notificationOptions);
+});
+
+// messaging.onMessage(function(payload) {
+//   console.log('Receiving foreground message');
+//   console.log(payload)
+//     var notificationTitle = 'vue-cometchat-firebase';
+//   var notificationOptions = {
+//     body: payload.notification.body,
+//     icon: '',
+//   };
+
+//   var notification = new Notification(notificationTitle, notificationOptions);
+//   notification.onclick = function(event) {
+//     notification.close();
+//     console.log(event);
+//   };
+//  });
 // export default app;
 
 // Retrieve firebase messaging
@@ -111,15 +110,3 @@ messaging.onBackgroundMessage((payload) => {
 //     console.log("cant see token");
 //   }
 // });
-
-
-function requestPermission() {
-  console.log("Requesting permission...");
-  Notification.requestPermission().then((permission) => {
-    if (permission === "granted") {
-      console.log("Notification permission granted.");
-    }
-  });
-}
-
-requestPermission();
